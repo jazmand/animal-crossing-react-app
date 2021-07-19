@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 import axios from 'axios';
-import Filter from './components/characters/Filter';
-import CharacterGrid from './components/characters/CharacterGrid';
+import Filter from './components/Filter';
+import VillagerGrid from './components/VillagerGrid';
 
 const App = () => {
 	const [items, setItems] = useState([]);
@@ -11,6 +11,7 @@ const App = () => {
 
 	useEffect(() => {
 		const fetchItems = async () => {
+			setIsLoading(true);
 			const result = await axios(`http://acnhapi.com/v1a/villagers/`);
 
 			console.log(result.data);
@@ -18,17 +19,12 @@ const App = () => {
 			setIsLoading(false);
 		};
 		fetchItems();
-	}, []);
-
-	const handleFilterChange = (event) => {
-		console.log(event.target.value);
-		setFilterName(event.target.value);
-	};
+	}, [filterName]);
 
 	return (
 		<div className='container'>
-			<Filter filterName={filterName} handleFilterChange={handleFilterChange} />
-			<CharacterGrid
+			<Filter getFilterName={(e) => setFilterName(e)} />
+			<VillagerGrid
 				items={items}
 				isLoading={isLoading}
 				filterName={filterName}

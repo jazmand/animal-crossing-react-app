@@ -1,8 +1,10 @@
 import React from 'react';
+import VillagerCard from './VillagerCard';
+import Loading from './Loading';
 
-const CharacterGrid = ({items, isLoading, filterName}) => {
+const VillagerGrid = ({items, isLoading, filterName}) => {
 	return isLoading ? (
-		<h1>Loading...</h1>
+		<Loading />
 	) : (
 		<section className='cards'>
 			{items
@@ -12,13 +14,10 @@ const CharacterGrid = ({items, isLoading, filterName}) => {
 						.includes(filterName.toLowerCase())
 				)
 				.map((item) => (
-					<div key={item.id}>
-						<h1>{item.name['name-USen']}</h1>
-						<img src={item.icon_uri} alt='Villager' />
-					</div>
+					<VillagerCard key={item.id} item={item} />
 				))}
 		</section>
 	);
 };
 
-export default CharacterGrid;
+export default VillagerGrid;
