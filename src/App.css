@@ -154,4 +154,10 @@ input[type='text'] {
 		grid-template-columns: 300px;
 		justify-content: center;
 	}
+	header img {
+		width: 400px;
+	}
+	input[type='text'] {
+		width: 300px;
+	}
 }
