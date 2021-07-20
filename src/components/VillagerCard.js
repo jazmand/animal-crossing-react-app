@@ -1,3 +1,5 @@
+import React from 'react';
+
 const VillagerCard = ({item}) => {
 	return (
 		<div className='card'>
