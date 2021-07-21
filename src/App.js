@@ -13,8 +13,6 @@ const App = () => {
 		const fetchItems = async () => {
 			setIsLoading(true);
 			const result = await axios(`http://acnhapi.com/v1a/villagers/`);
-
-			console.log(result.data);
 			setItems(result.data);
 			setIsLoading(false);
 		};

@@ -17,7 +17,7 @@ const Filter = ({getFilterName}) => {
 						<input
 							type='text'
 							className='form-control'
-							placeholder='Search villagers'
+							placeholder='Search villagers by name'
 							value={text}
 							onChange={(e) => onChange(e.target.value)}
 							autoFocus

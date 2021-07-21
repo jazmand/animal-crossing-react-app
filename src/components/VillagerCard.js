@@ -8,17 +8,16 @@ const VillagerCard = ({item}) => {
 					<img
 						className='front-image'
 						src={item.image_uri}
-						alt='Villager Back'
+						alt='Villager Front'
 					/>
 				</div>
-
 				<div className='card-back'>
 					<h1>
-						{item.name['name-USen']}{' '}
+						{item.name['name-USen']}
 						<img
 							className='back-image'
 							src={item.icon_uri}
-							alt='Villager Back'
+							alt='Villager Back Icon'
 						/>
 					</h1>
 					<ul>
