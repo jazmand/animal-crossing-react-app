@@ -38,10 +38,11 @@ const App = () => {
 				isLoading={isLoading}
 				filterName={filterName}
 				visible={visible}
-				totalItems={totalItems}
 			/>
 			{totalItems > visible ? (
-				<button onClick={showMore}>Show More</button>
+				<div className='center'>
+					<button onClick={showMore}>Show More</button>
+				</div>
 			) : null}
 		</div>
 	);
