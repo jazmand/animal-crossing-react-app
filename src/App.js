@@ -5,7 +5,9 @@ import Filter from './components/Filter';
 import VillagerGrid from './components/VillagerGrid';
 
 const App = () => {
+	const itemNumber = 8;
 	const [items, setItems] = useState([]);
+	const [visible, setVisible] = useState(itemNumber);
 	const [isLoading, setIsLoading] = useState(true);
 	const [filterName, setFilterName] = useState('');
 
@@ -15,9 +17,18 @@ const App = () => {
 			const result = await axios(`http://acnhapi.com/v1a/villagers/`);
 			setItems(result.data);
 			setIsLoading(false);
+			setVisible(itemNumber);
 		};
 		fetchItems();
 	}, [filterName]);
+
+	let totalItems = items.filter((item) =>
+		item.name['name-USen'].toLowerCase().includes(filterName.toLowerCase())
+	).length;
+
+	const showMore = () => {
+		setVisible((prevValue) => prevValue + itemNumber);
+	};
 
 	return (
 		<div className='container'>
@@ -26,7 +37,12 @@ const App = () => {
 				items={items}
 				isLoading={isLoading}
 				filterName={filterName}
+				visible={visible}
+				totalItems={totalItems}
 			/>
+			{totalItems > visible ? (
+				<button onClick={showMore}>Show More</button>
+			) : null}
 		</div>
 	);
 };

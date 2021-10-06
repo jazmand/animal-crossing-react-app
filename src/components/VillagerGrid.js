@@ -2,7 +2,7 @@ import React from 'react';
 import VillagerCard from './VillagerCard';
 import Loading from './Loading';
 
-const VillagerGrid = ({items, isLoading, filterName}) => {
+const VillagerGrid = ({items, visible, isLoading, filterName}) => {
 	return isLoading ? (
 		<Loading />
 	) : (
@@ -13,6 +13,7 @@ const VillagerGrid = ({items, isLoading, filterName}) => {
 						.toLowerCase()
 						.includes(filterName.toLowerCase())
 				)
+				.slice(0, visible)
 				.map((item) => (
 					<VillagerCard key={item.id} item={item} />
 				))}
