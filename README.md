@@ -12,6 +12,7 @@ Live link [here](http://ac-villager-search.herokuapp.com/).
 - Villagers are displayed on cards that can be flipped with a hover (click on mobile)
 - Frontside of the card shows the main image of the villager
 - Backside of the card shows the villager's name, icon, species, gender, birthday, and personality
+- 8 villagers are shown initially with a "Show More" button on the bottom of the page to load an additional 8
 
 ## Tech Used / Dependencies
 
