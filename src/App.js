@@ -14,7 +14,7 @@ const App = () => {
 	useEffect(() => {
 		const fetchItems = async () => {
 			setIsLoading(true);
-			const result = await axios(`http://acnhapi.com/v1a/villagers/`);
+			const result = await axios(`https://acnhapi.com/v1a/villagers/`);
 			setItems(result.data);
 			setIsLoading(false);
 			setVisible(itemNumber);
